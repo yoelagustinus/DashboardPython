@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Chart</title>
+    <!-- Load Plotly.js from CDN -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <h1>Line Chart of Netsales by Brand</h1>
+    
+    <!-- Tampilkan grafik di div dengan id 'chart' -->
+    <div id="chart"></div>
+
+    <script>
+        // Load chart data from Flask into the specified div
+        var chartData = {{ chart_json | safe }};
+        Plotly.plot('chart', chartData.data, chartData.layout);
+    </script>
+</body>
+</html>
